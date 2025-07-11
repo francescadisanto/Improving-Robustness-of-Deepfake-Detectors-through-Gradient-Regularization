@@ -27,13 +27,13 @@ The dataset is organized into three distinct subsets:
 
 ### Data Augmentation
 
-To improve generalization and reduce overfitting, we apply standard **data augmentation techniques** during training:
-- Random horizontal flips
-- Random rotations
-- Color jittering
-- Resizing and normalization (according to EfficientNet-B0 specifications)
+To ensure input consistency and model compatibility, we apply the following preprocessing steps to all training, validation, and test images:
+	•	Resize to 224×224 pixels
+	•	Convert to Tensor (scaling pixel values to [0, 1])
+	•	Normalize using EfficientNet-B0 statistics:
+mean = [0.485, 0.456, 0.406]
+std  = [0.229, 0.224, 0.225]
 
-These transformations simulate natural variability and help the model focus on deeper semantic features rather than superficial patterns.
 
 # Key Features
 
