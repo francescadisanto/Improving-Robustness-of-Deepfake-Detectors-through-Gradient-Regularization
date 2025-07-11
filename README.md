@@ -27,14 +27,36 @@ The dataset is organized into three distinct subsets:
 
 ### Data Augmentation
 
-To ensure input consistency and model compatibility, we apply the following preprocessing steps to all training, validation, and test images:
+To improve generalization and reduce overfitting, the training set undergoes a series of data augmentation transformations. These include:
+
+- Random resized cropping (zoom-in/out)
+- Random horizontal flipping
+- Random color jitter (brightness, contrast, saturation, hue)
+- Random rotation
+- Tensor conversion and normalization
+
+Meanwhile, validation and test sets are only resized and normalized to ensure evaluation consistency.
 
 ```python
-transform = transforms.Compose([
+# ImageNet statistics for EfficientNet-B0
+efficientnet_mean = [0.485, 0.456, 0.406]
+efficientnet_std = [0.229, 0.224, 0.225]
+
+# Training augmentation
+train_transform = transforms.Compose([
+    transforms.RandomResizedCrop(224, scale=(0.9, 1.0)),
+    transforms.RandomHorizontalFlip(p=0.5),
+    transforms.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1, hue=0.05),
+    transforms.RandomRotation(10),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=efficientnet_mean, std=efficientnet_std)
+])
+
+# Validation / Test preprocessing
+test_transform = transforms.Compose([
     transforms.Resize((224, 224)),
     transforms.ToTensor(),
-    transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                         std=[0.229, 0.224, 0.225])
+    transforms.Normalize(mean=efficientnet_mean, std=efficientnet_std)
 ])
 ```
 
