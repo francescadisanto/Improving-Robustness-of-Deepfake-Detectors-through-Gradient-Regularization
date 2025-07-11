@@ -27,13 +27,17 @@ The dataset is organized into three distinct subsets:
 
 ### Data Augmentation
 
-To ensure input consistency and model compatibility, we apply the following preprocessing steps to all training, validation, and test images:
-	•	Resize to 224×224 pixels
-	•	Convert to Tensor (scaling pixel values to [0, 1])
-	•	Normalize using EfficientNet-B0 statistics:
-mean = [0.485, 0.456, 0.406]
-std  = [0.229, 0.224, 0.225]
+### 📈 Data Augmentation
 
+To ensure input consistency and model compatibility, we apply the following preprocessing steps to all training, validation, and test images:
+
+```python
+transform = transforms.Compose([
+    transforms.Resize((224, 224)),
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.485, 0.456, 0.406],
+                         std=[0.229, 0.224, 0.225])
+])
 
 # Key Features
 
