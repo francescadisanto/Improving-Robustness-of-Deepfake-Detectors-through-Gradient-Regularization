@@ -64,6 +64,7 @@ test_transform = transforms.Compose([
 
 - **Pretrained EfficientNet-B0** : used as the backbone for both baseline and regularized models, initialized with ImageNet weights.
 - **Gradient Regularization** :improves generalization and robustness by injecting noise into shallow feature statistics (mean and variance) during training.
+- **Adversarial Training** to enhance robustness
 - **Robustness Against Adversarial Attacks** : evaluation and visualization under three adversarial attack methods:
   - **FGSM** (Fast Gradient Sign Method)
   - **PGD** (Projected Gradient Descent)
