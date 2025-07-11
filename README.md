@@ -27,8 +27,6 @@ The dataset is organized into three distinct subsets:
 
 ### Data Augmentation
 
-### 📈 Data Augmentation
-
 To ensure input consistency and model compatibility, we apply the following preprocessing steps to all training, validation, and test images:
 
 ```python
