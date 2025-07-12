@@ -132,6 +132,7 @@ To test the robustness, both models are tested using three adversarial attacks:
 - **PGD** (Projected Gradient Desent)  
 - **BIM** (Basic Iterative Method)
 Each attack is tested over multiple values of epsilon to evaluate how performance degrades with increasing perturbation strenght.
+
 Comparisons are made in terms of accuracy, F1 score, and IINC to assess model stability under attack.
 
 ## Visual Analysis
