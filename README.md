@@ -19,6 +19,8 @@ We use the **DFFD (DeepFake Face Dataset)**, a collection of real and manipulate
   - **StarGAN**
   - **PG-GAN** (versions v1 and v2)
 
+  link to the dataset: https://cvlab.cse.msu.edu/dffd-dataset.html
+
 ### Dataset Split
 The dataset is organized into three distinct subsets:
 - **Training Set**: a mixture of real and fake samples. We apply **class-weighted loss** to compensate for label imbalance (real: ~10k, fake: ~56k).
