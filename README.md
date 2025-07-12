@@ -127,6 +127,17 @@ loss_adv = (1 - beta) * loss_clean + beta * loss_adv_example
 ```
 - beta controls the contribution of adversarial loss
 
+### ablation study
+In this section, we evaluate the impact of the key components of our method on model performance. Specifically, we analyze the influence of:
+
+- **Gradient Regularization weight (α)**
+- **Adversarial Training weight (β)**
+- **Perturbation strength (ε)**
+
+on the validation accuracy and robustness of the model.
+
+This systematic exploration allows us to identify the optimal combination of hyperparameters to be used in the final training setup. By testing different values of `α`, `β`, and `ε` independently, we gain insight into how each component contributes to improved generalization and adversarial robustness.
+
 ##  Adversarial Evaluation
 
 To test the robustness, both models are tested using three adversarial attacks:
