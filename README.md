@@ -6,7 +6,7 @@ This project addresses the challenge of building robust deepfake detectors by ap
 To thoroughly evaluate robustness, we subject the models to **three types of adversarial attacks**:
 - **FGSM (Fast Gradient Sign Method)**  
 - **PGD (Projected Gradient Descent)**
-- **BIM (Basic Iterative Method)**
+- **MIFGSM (Momentum Iterative Fast Gradient Sign Method)**
 
 ## Dataset
 
@@ -69,7 +69,7 @@ test_transform = transforms.Compose([
 - **Robustness Against Adversarial Attacks** : evaluation and visualization under three adversarial attack methods:
   - **FGSM** (Fast Gradient Sign Method)
   - **PGD** (Projected Gradient Descent)
-  - **BIM** (Basic Iterative Method)
+  - **MIFGSM (Momentum Iterative Fast Gradient Sign Method)**
 
 - **Performance Metrics** : evaluation using:
   - **Accuracy**
@@ -149,7 +149,7 @@ The ablation study guides the selection of the final hyperparameters:
 To test the robustness, both models are tested using three adversarial attacks:
 - **FGSM** (Fast Gradient Sign Method) 
 - **PGD** (Projected Gradient Desent)  
-- **BIM** (Basic Iterative Method)
+- **MIFGSM** (Momentum Iterative Fast Gradient Sign Method)
 Each attack is tested over multiple values of epsilon to evaluate how performance degrades with increasing perturbation strenght.
 
 Comparisons are made in terms of accuracy, F1 score, and IINC to assess model stability under attack.
@@ -167,13 +167,13 @@ Comparisons are made in terms of accuracy, F1 score, and IINC to assess model st
 We demonstrate that applying **gradient regularization via feature statistic perturbations** leads to:
 
 - **Improved Robustness**:  
-  The regularized model shows greater resilience to adversarial attacks (FGSM, PGD, BIM), maintaining higher performance across increasing levels of perturbation.
+  The regularized model shows greater resilience to adversarial attacks (FGSM, PGD, MIFGSM), maintaining higher performance across increasing levels of perturbation.
 
 - **Higher Stability**:  
   Both **Accuracy** and **F1 Score** degrade more gracefully as epsilon increases compared to the baseline model, indicating better robustness to distribution shifts.
 
-- **Lower IINC (Interpretability-Informed Consistency)**:  
-  The regularized model exhibits **lower IINC values**, meaning its feature attributions (CAMs) are more stable under attack. This suggests improved feature invariance and better interpretability.
+- **Higher IINC (Interpretability-Informed Consistency)**:  
+  The regularized model exhibits **higher IINC values**, meaning its feature attributions (CAMs) are more stable under attack. This suggests improved feature invariance and better interpretability.
 
 - **Generalization Improvement**:  
   The gradient-regularized model performs consistently better on unseen manipulations compared to the baseline, reducing overfitting to specific texture artifacts.
