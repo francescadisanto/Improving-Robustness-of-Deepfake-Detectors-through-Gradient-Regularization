@@ -135,7 +135,7 @@ We independently test different values of `α` and `ε`, and measure the impact 
 
 - **Validation Accuracy**
 - **F1 Score**
-- **Robustness to Adversarial Attacks** (FGSM, PGD, BIM)
+- **Robustness to Adversarial Attacks** (FGSM, PGD, MIFGSM)
 
 Note that **no adversarial examples are used during training**. The perturbations are injected internally at the feature level (mean and variance of shallow features).
 
