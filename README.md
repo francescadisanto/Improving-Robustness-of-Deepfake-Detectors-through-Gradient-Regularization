@@ -116,7 +116,7 @@ loss_total = (1 - α) * loss_clean + α * loss_perturbed
 ```
 Where:
 - `alpha` balances the contribution of regularization (e.g., 0.5)  
-- `epsilon` controls the strength of the perturbation (e.g., 0.05)  
+- `r` controls the strength of the perturbation (e.g., 0.05)  
 - Both components use standard **cross-entropy loss**
 
 
@@ -125,13 +125,13 @@ Where:
 We conduct an **ablation study** to evaluate the impact of the gradient regularization components on model performance. Specifically, we analyze the effect of:
 
 - **Gradient Regularization weight (α)**
-- **Perturbation strength (ε)**
+- **Perturbation strength (r)**
 
 #### Objective:
 The goal is to find the optimal hyperparameters that balance generalization, robustness, and stability during training.
 
 #### Method:
-We independently test different values of `α` and `ε`, and measure the impact on:
+We independently test different values of `α` and `r`, and measure the impact on:
 
 - **Validation Accuracy**
 - **F1 Score**
@@ -142,7 +142,7 @@ Note that **no adversarial examples are used during training**. The perturbation
 #### Outcome:
 The ablation study guides the selection of the final hyperparameters:
 - `α = 0.5`
-- `ε = 0.05`
+- `r = 0.05`
 
 ##  Adversarial Evaluation
 
