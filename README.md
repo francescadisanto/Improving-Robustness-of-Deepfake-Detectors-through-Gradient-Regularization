@@ -105,7 +105,7 @@ This stochastic perturbation simulates gradient regularization, forcing the mode
 
 - During the training, two forward passes are computed:
   - `forward_clean(x)` uses original shallow features.
-  - `forward_perturbed(x)` perturbs the shallow features by adding Gaussian noise to their mean and standard deviation before propagating through the deeper layers.
+  - `forward_perturbed(x)` perturbs the shallow features by adding gradient-based noise to their mean and standard deviation before propagating through the deeper layers.
 
 This techinique, known as a Perturbation Invariance Module (PIM) encourages the network to learn representations invariant to low-level texture noise.
 
